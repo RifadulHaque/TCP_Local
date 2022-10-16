@@ -1,0 +1,24 @@
+{
+  "title": "RFD",
+  "type": "object",
+    "contains:": {
+      "rfw_id:": {
+        "type": "integer"
+      },
+      "last_batch_id:": {
+        "type": "integer"
+      },
+      "data_samples_requested:": {
+        "description": "Workload Metric (such as CPU or NetworkIn or NetworkOut or Memory)",
+        "type": "array",
+          "contains:": {
+            "type": "number"
+          }
+      }
+    },
+  "required": [
+    "rfw_id",
+    "last_batch_id",
+    "data_samples"
+  ]
+}

@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+message RFW {
+  int32 rfw_id = 1;
+  int32 benchmark_type = 2;
+  int32 workload_metric = 3;
+  int32 batch_unit = 4;
+  int32 batch_id = 5;
+  int32 batch_size = 6;
+  int32 batch_type = 7;
+}
+
+message RFD {
+  int32 rfw_id = 1;
+  int32 last_batch_id = 2;
+  repeated float data_samples_requested = 3;
+}
+
+service communication {
+  rpc WorkloadData (RFW) returns (RFD);
+}
+
