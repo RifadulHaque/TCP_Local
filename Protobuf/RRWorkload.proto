@@ -1,3 +1,4 @@
+
 syntax = "proto3";
 
 message RFW {
@@ -16,7 +17,7 @@ message RFD {
   repeated float data_samples_requested = 3;
 }
 
-service communication {
+service WorkloadService {
   rpc WorkloadData (RFW) returns (RFD);
 }
 
