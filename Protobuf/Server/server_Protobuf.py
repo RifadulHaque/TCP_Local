@@ -2,6 +2,7 @@
 # https://developers.google.com/protocol-buffers/docs/pythontutorial
 # https://developers.google.com/protocol-buffers/docs/proto
 # https://www.youtube.com/watch?v=psYAhc9JUyo&t=653s&ab_channel=Jbang
+# https://docs.confluent.io/platform/current/schema-registry/serdes-develop/serdes-protobuf.html#protobuf-schema-serializer-and-deserializer
 
 
 import socket
@@ -42,7 +43,7 @@ if __name__ == '__main__':
             print(request)
 
             # Get File to Read
-            file_name = get_file_name(request.benchmark_type, request.data_type)
+            file_name = get_file_name(request.benchmark_type, request.batch_type)
 
             last_batch_id = request.batch_id + request.batch_size - 1
 
