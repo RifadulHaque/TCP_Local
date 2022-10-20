@@ -44,3 +44,9 @@ def client_data_request():
     data_type = int(user_input_checker("1 for Training Or 2 for Testing : ", ["1", "2"]))
 
     return rfw_id, benchmark_type, workload_metric, batch_unit, batch_id, batch_size, data_type
+
+
+def client_data_analytics_request():
+    data_analytics = str(input("Enter the Data analytics ( 10, 50, 95, 99, avg, std, max, min)p :"))
+
+    return data_analytics

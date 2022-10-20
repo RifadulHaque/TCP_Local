@@ -12,7 +12,7 @@
 
 import json
 import socket
-from response import get_file_name, read_data_samples
+from response import get_file_name, read_data_samples, read_data_analytics
 
 if __name__ == '__main__':
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # server socket
@@ -51,11 +51,14 @@ if __name__ == '__main__':
             data_samples = read_data_samples(file_name, request['workload_metric'], request['batch_unit'],
                                                        request['batch_id'], request['batch_size'])
 
+            data_analytics = read_data_analytics(file_name, request['workload_metric'], request['data_analytics'])
+
             # Serialize which is encode
             rfd = {
                 "rfw_id": request['rfw_id'],
                 "last_batch_id": last_batch_id,
-                "data_samples_requested": data_samples
+                "data_samples_requested": data_samples,
+                "data_analytics": data_analytics
             }
 
             response = json.dumps(rfd, indent=2)

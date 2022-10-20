@@ -1,5 +1,6 @@
 import csv
 import sys
+import pandas as pd
 
 path = sys.path[1]
 
@@ -39,3 +40,32 @@ def read_data_samples(file_name, workload_metric, batch_unit, batch_id, batch_si
             data_samples_requested.append(float(list_of_rows[index][workload_metric - 1]))
 
     return data_samples_requested
+
+
+# https://medium.com/@kasiarachuta/basic-statistics-in-pandas-dataframe-594208074f85
+
+def read_data_analytics(file_name, workload_metric, data_analytics):
+    with open(file_name, 'r') as file:
+        reader_csv = pd.read_csv(file)
+
+        if workload_metric == 1:
+            column_name = 'CPUUtilization_Average'
+        elif workload_metric == 2:
+            column_name = 'NetworkIn_Average'
+        elif workload_metric == 3:
+            column_name = 'NetworkOut_Average'
+        else:
+            column_name = 'MemoryUtilization_Average'
+
+        if data_analytics == "50":
+            analytics = reader_csv[column_name].mean()
+        elif data_analytics == "min":
+            analytics = reader_csv[column_name].min()
+        elif data_analytics == "max":
+            analytics = reader_csv[column_name].max()
+        elif data_analytics == "std":
+            analytics = reader_csv[column_name].std()
+        else:
+            analytics = reader_csv[column_name].describe(percentiles=[int(data_analytics) / 100])
+
+    return str(analytics)

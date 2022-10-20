@@ -14,7 +14,7 @@ import os
 import socket
 import sys
 
-from request import continue_connection_establishment, client_data_request
+from request import continue_connection_establishment, client_data_request, client_data_analytics_request
 
 path = sys.path[1]
 
@@ -38,13 +38,15 @@ if __name__ == '__main__':
         # store all the data here after making the request for them
 
         rfw_id, benchmark_type, workload_metric, batch_unit, batch_id, batch_size, data_type = client_data_request()
+        data_analytics = client_data_analytics_request()
 
         # a directory is created to store the data
         os.makedirs(path + f"/JSON/Result/{rfw_id}")
 
         # Serialize the data in JSON Data format
         rfw = {"rfw_id": rfw_id, "benchmark_type": benchmark_type, "workload_metric": workload_metric,
-               "batch_unit": batch_unit, "batch_id": batch_id, "batch_size": batch_size, "data_type": data_type}
+               "batch_unit": batch_unit, "batch_id": batch_id, "batch_size": batch_size, "data_type": data_type,
+               "data_analytics": data_analytics}
         request = json.dumps(rfw)
         write_in_file(rfw_id, "rfw", rfw)
         s.sendall(request.encode("utf-8"))
