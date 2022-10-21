@@ -14,6 +14,9 @@
           "contains:": {
             "type": "number"
           }
+      },
+      "data_analytics": {
+        "type": "string"
       }
     },
   "required": [

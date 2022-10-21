@@ -25,6 +25,9 @@
     },
     "batch_type:": {
       "type": "integer"
+    },
+    "data_analytics": {
+      "type": "string"
     }
   },
   "required": [
