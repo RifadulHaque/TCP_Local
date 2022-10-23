@@ -3,7 +3,7 @@
 # https://developers.google.com/protocol-buffers/docs/proto
 # https://www.youtube.com/watch?v=psYAhc9JUyo&t=653s&ab_channel=Jbang
 # https://docs.confluent.io/platform/current/schema-registry/serdes-develop/serdes-protobuf.html#protobuf-schema-serializer-and-deserializer
-
+# https://blog.conan.io/2019/03/06/Serializing-your-data-with-Protobuf.html
 
 import socket
 

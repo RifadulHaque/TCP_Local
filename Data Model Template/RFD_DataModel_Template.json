@@ -22,6 +22,7 @@
   "required": [
     "rfw_id",
     "last_batch_id",
-    "data_samples"
+    "data_samples",
+    "data_analytics"
   ]
 }

@@ -37,6 +37,7 @@
     "batch_unit",
     "batch_id",
     "batch_size",
-    "batch_type"
+    "batch_type",
+    "data_analytics"
   ]
 }
